@@ -15,9 +15,29 @@ router.post("/newCart", verifyAuthentication, async (req, res, next) => {
     const existingCart = await CartModel.findByUserId(userId);
     if (!existingCart) {
       const cart = await CartModel.create(userId);
-      res.status(200).send("Cart created");
+      res.status(200).json("Cart created");
     } else {
-      res.status(409).send("A cart is already created");
+      res.status(409).json("A cart is already created");
+    }
+  } catch (err) {
+    next(err);
+  }
+});
+
+/*
+  @route POST /cart/deleteCart
+  @desc  Creates a new cart for the authenticated user.
+         Each user can only have one cart.
+*/
+router.post("/deleteCart", verifyAuthentication, async (req, res, next) => {
+  try {
+    const userId = req.user.id;
+    const existingCart = await CartModel.findByUserId(userId);
+    if (existingCart) {
+      const cart = await CartModel.delete(userId);
+      res.status(200).json("Cart deleted");
+    } else {
+      res.status(409).json("There is no existing cart");
     }
   } catch (err) {
     next(err);
@@ -35,7 +55,7 @@ router.get("/", verifyAuthentication, async (req, res, next) => {
     if (!cart) {
       return res.status(404).send("Cart not found");
     }
-    res.status(200).send(cart);
+    res.status(200).json(cart);
   } catch (err) {
     next(err);
   }
@@ -49,7 +69,7 @@ router.get("/:cartId", verifyAuthentication, async (req, res, next) => {
   try {
     const cartId = req.params.cartId;
     const results = await CartModel.findByCartId(cartId);
-    res.status(200).send(results);
+    res.status(200).json({ cart:results });
   } catch (err) {
     next(err);
   }
@@ -66,9 +86,9 @@ router.put("/addItem/:itemId", verifyAuthentication, async (req, res, next) => {
     const itemId = req.params.itemId;
     const itemAdded = await CartModel.addItemToCart(itemId, userId);
     if (itemAdded) {
-      res.status(200).send("Item added to cart");
+      res.status(200).json("Item added to cart");
     } else {
-      res.status(404).send("Item cannot be added to cart");
+      res.status(404).json("Item cannot be added to cart");
     }
   } catch (err) {
     next(err);
@@ -89,9 +109,9 @@ router.put(
       const itemId = req.params.itemId;
       const itemDeleted = await CartModel.deleteItemFromCart(itemId, userId);
       if (itemDeleted) {
-        res.status(200).send("Item deleted from cart");
+        res.status(200).json("Item deleted from cart");
       } else {
-        res.status(404).send("Item cannot be deleted from cart");
+        res.status(404).json("Item cannot be deleted from cart");
       }
     } catch (err) {
       next(err);

@@ -8,14 +8,17 @@ const cartRoutes = require("./routes/cart.js");
 const orderRoutes = require("./routes/order.js");
 const userRoutes = require("./routes/user.js");
 const menuRoutes = require("./routes/menu.js");
+const authRoutes = require("./routes/auth.js");
 const errorHandler = require("./middleware/errorHandler.js");
 const PORT = process.env.PORT;
 
 // Parses incoming requests with JSON payloads
 app.use(bodyParser.json());
 
-// Enables Cross Origin Resource Sharing to all origins by default
-app.use(cors());
+// Enable CORS for requests coming from our frontend (Vite dev server).
+// `origin` specifies which frontend URL is allowed to make requests.
+// `credentials: true` allows session cookies to be sent with cross-origin requests.
+app.use(cors({ origin: "http://localhost:5173", credentials: true }));
 
 // Creates a session by using the express-session middleware for persistent login sessions
 // Required for Passport's login session management
@@ -37,6 +40,7 @@ app.use("/cart", cartRoutes);
 app.use("/orders", orderRoutes);
 app.use("/menu", menuRoutes);
 app.use("/users", userRoutes);
+app.use("/auth", authRoutes);
 
 // Handler for catching unknown routes
 app.use((req, res, next) => {

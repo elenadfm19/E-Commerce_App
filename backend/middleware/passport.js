@@ -9,10 +9,10 @@ const UserModel = require("../models/userModel.js");
   - Here "username" corresponds to the user's email.
 */
 passport.use(
-  new LocalStrategy(async (username, password, done) => {
+  new LocalStrategy(async (email, password, done) => {
     try {
       // Look up the user in the database by email (username here = email)
-      const user = await UserModel.findByEmail(username);
+      const user = await UserModel.findByEmail(email);
       // If no user is found, the authentication fails
       if (!user) return done(null, false);
       // Compare the provided password with the stored hashed password

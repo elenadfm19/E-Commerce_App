@@ -14,9 +14,9 @@ router.post("/neworder", verifyAuthentication, async (req, res, next) => {
     const userId = req.user.id;
     const orderCreated = await OrderModel.create(userId);
     if (orderCreated) {
-      res.status(200).send("Order created");
+      res.status(200).json("Order created");
     } else {
-      res.status(404).send("Cart is empty. Order cannot be created");
+      res.status(404).json("Cart is empty. Order cannot be created");
     }
   } catch (err) {
     next(err);
@@ -32,7 +32,7 @@ router.get("/", verifyAuthentication, async (req, res, next) => {
   try {
     const userId = req.user.id;
     const results = await OrderModel.findByUserId(userId);
-    res.status(200).send(results);
+    res.status(200).json(results);
   } catch (err) {
     next(err);
   }
@@ -47,7 +47,7 @@ router.get("/:orderId", verifyAuthentication, async (req, res, next) => {
   try {
     const orderId = req.params.orderId;
     const results = await OrderModel.findByOrderId(orderId);
-    res.status(200).send(results);
+    res.status(200).json(results);
   } catch (err) {
     next(err);
   }

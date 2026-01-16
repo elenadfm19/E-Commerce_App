@@ -1,0 +1,311 @@
+* {
+  font-size: 12px;
+  box-sizing: border-box;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+  display: block;
+}
+
+.home-bar {
+  border: 1px solid darkgreen;
+  width: 100%;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+#bar1 {
+  background-color: green;
+  color: white;
+  font-weight: bold;
+  width: 30%;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding-left: 1em;
+}
+#bar2 {
+  background-color: white;
+  color: darkgreen;
+  width: 40%;
+  text-align: center;
+  font-family: "Helvetica";
+  font-size: 1.5em;
+  cursor: pointer;
+}
+#bar3 {
+  background-color: red;
+  width: 30%;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  padding-right: 1em;
+}
+#intro {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+}
+#introText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+#introText p {
+  font-family: "Courier", monospace;
+  font-weight: bold;
+  color: darkgreen;
+  font-size: 2em;
+  text-align: center;
+}
+#introText button {
+  border-radius: 5px;
+  width: 150px;
+  background-color: darkgreen;
+  color: White;
+  font-weight: bold;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+#intro img {
+  max-width: 50%;
+  height: auto;
+  display: block;
+}
+#login-button,
+#register-button,
+#logout-button,
+#create-cart-button,
+#view-orders-button,
+#discard-cart-button,
+#view-cart-button,
+#order-cart-button,
+.green-button {
+  border-radius: 5px;
+  background-color: darkgreen;
+  color: White;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0.5rem;
+  border: none;
+  margin: 0.2rem;
+}
+#profile-button {
+  border-radius: 5px;
+  min-width: 40%;
+  background-color: white;
+  color: darkgreen;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+#menu {
+  font-size: 3rem;
+  color: darkgreen;
+  display: center;
+  text-align: center;
+}
+#menu-buttons {
+  display: flex;
+  justify-content: center;
+}
+#cart-summary {
+  position: fixed;
+  top: 8rem;
+  left: 0.5rem;
+  background-color: #f0f8f0;
+  border: 2px solid darkgreen;
+  border-radius: 10px;
+  width: 220px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#cart-summary p:first-child {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+#cart-summary p {
+  font-size: 1.1rem;
+  margin: 0.3rem 0;
+}
+.menu-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+.menu-section p {
+  font-size: 2rem;
+}
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  height: 2rem;
+  width: 50%;
+}
+.menu-item p {
+  font-size: 1.5rem;
+}
+.price-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.add-remove-buttons {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: 100%;
+}
+.quantity-button {
+  padding: 0.1rem 0.4rem;
+  border-radius: 5px;
+  background-color: darkgreen;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#cart,
+#orderList,
+#selected-order,
+#profile {
+  margin: 1rem;
+  padding: 1rem;
+  background-color: #f0f8f0;
+  border: 2px solid darkgreen;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
+#cart h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+.cart-item,
+.order,
+.order-details {
+  margin-bottom: 1.2rem;
+}
+.cart-item p:first-child,
+.order-details p:first-child,
+.order p:first-child {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.cart-item p,
+.order-details p {
+  font-size: 1.1rem;
+  margin: 0.3rem 0;
+}
+#cart-details p {
+  font-size: 1.1rem;
+  margin: 1rem 0;
+}
+#cart-details p {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 2rem 0;
+}
+#order-success p,
+#profile-deleted p {
+  font-size: 1.5rem;
+}
+
+#logout {
+  margin: 2rem 1rem;
+}
+#logout p {
+  font-size: 1.5rem;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 320px;
+  padding: 2rem;
+  margin: 3rem auto;
+  border: 2px solid darkgreen;
+  border-radius: 10px;
+  background-color: #f0f8f0;
+}
+.form input {
+  padding: 0.6rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #bbb;
+}
+
+.form button {
+  padding: 0.8rem;
+  font-size: 1rem;
+  background-color: darkgreen;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.form button:hover {
+  background-color: green;
+}
+
+#showPassword {
+  background-color: #ddd;
+  color: black;
+}
+
+#showPassword:hover {
+  background-color: #ccc;
+}
+
+@media only screen and (max-width: 800px) {
+  #intro {
+    flex-direction: column;
+  }
+
+  #intro img {
+    max-width: 80%;
+  }
+  #bar3 {
+    flex-direction: column;
+    justify-content: center;
+  }
+  #login-button,
+  #register-button,
+  #logout-button {
+    width: auto;
+    margin: 0.3rem auto;
+    display: block;
+  }
+  .menu-item {
+    flex-direction: column;
+    gap: 0rem;
+    height: auto;
+    width: 100;
+    margin-bottom: 1rem;
+  }
+  #cart-summary {
+    position: static;
+    width: 90%;
+    margin: 2rem;
+    top: auto;
+    left: auto;
+  }
+}

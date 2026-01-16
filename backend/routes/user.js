@@ -1,8 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const passport = require("../middleware/passport.js");
-const bcrypt = require('bcrypt');
+const bcrypt = require("bcrypt");
 const UserModel = require("../models/userModel.js");
+const validator = require('validator');
 // Middleware that ensures user is logged in before accessing routes
 const verifyAuthentication = require("../middleware/verifyAuthentication.js");
 
@@ -13,29 +14,49 @@ const verifyAuthentication = require("../middleware/verifyAuthentication.js");
 */
 router.post("/register", async (req, res, next) => {
   try {
-    const { username, password, firstName, lastName, address } = req.body;
-    // Checks if user already exists with that username (email)
-    const user = await UserModel.findByEmail(username);
-    if (!user) {
-      // If the user doesn´t exist we hash the password
-      const salt = await bcrypt.genSalt(5);
-      const hash = await bcrypt.hash(password, salt);
-      // Saves the user into the database
-      const userData = await UserModel.registerUser(
-        username,
-        hash,
-        firstName,
-        lastName,
-        address
-      );
-      // Log the user in right after the registration
-      req.login(userData, (err) => {
-        if (err) return next(err);
-        res.status(201).send("The user has been correctly created");
-        //res.redirect("/menu");
-      });
+    const { email, password, firstName, lastName, address } = req.body;
+    if (
+      email &&
+      password &&
+      firstName &&
+      lastName &&
+      address &&
+      validator.isEmail(email)
+    ) {
+      // Checks if user already exists with that username (email)
+      const user = await UserModel.findByEmail(email);
+
+      if (!user) {
+        // If the user doesn´t exist we hash the password
+        const salt = await bcrypt.genSalt(5);
+        const hash = await bcrypt.hash(password, salt);
+        // Saves the user into the database
+        const userData = await UserModel.registerUser(
+          email,
+          hash,
+          firstName,
+          lastName,
+          address
+        );
+
+        // Log the user in right after the registration
+        req.login(userData, (err) => {
+          if (err) return next(err);
+          res.status(201).json({
+            user: {
+              id: userData.id,
+              email: userData.email,
+              firstname: userData.firstname,
+              lastname: userData.lastname,
+              address: userData.address,
+            },
+          });
+        });
+      } else {
+        res.status(409).json("A user with this email address already exists");
+      }
     } else {
-      res.status(409).send("A user with this email address already exists");
+      res.status(409).json("Some field in the registration is missing or wrong");
     }
   } catch (err) {
     next(err);
@@ -52,7 +73,6 @@ router.post("/register", async (req, res, next) => {
 );
 */
 
-
 /*
   @route POST /users/login
   @desc  Logs in an existing user with Passport "local" strategy
@@ -64,7 +84,16 @@ router.post("/login", (req, res, next) => {
     // Log the user into the session
     req.login(user, (err) => {
       if (err) return next(err);
-      res.status(200).send("Logged in successfully");
+      res.status(200).json({
+        message: "Logged in successfully",
+        user: {
+          id: user.id,
+          email: user.email,
+          firstname: user.firstname,
+          lastname: user.lastname,
+          address:user.address,
+        },
+      });
     });
   })(req, res, next);
 });
@@ -79,7 +108,6 @@ router.post("/logout", verifyAuthentication, (req, res, next) => {
   req.logout((err) => {
     if (err) return next(err);
     res.status(200).json({ message: "Logged out successfully" });
-    //res.redirect("/menu");
   });
 });
 
@@ -109,7 +137,7 @@ router.delete("/delete", verifyAuthentication, async (req, res, next) => {
     // Passport removes the req.user property and the user id is removed from the session;
     req.logout((err) => {
       if (err) return next(err);
-      res.status(200).send("The user has been deleted");
+      res.status(200).json("The user has been deleted");
     });
   } catch (err) {
     next(err);

@@ -34,6 +34,7 @@ class UserModel {
     try {
       const results = await db.query(statement, [id]);
       if (results.rows.length > 0) {
+        console.log(results.rows[0]);
         return results.rows[0]; // return user object
       }
       return null; // if user not found
