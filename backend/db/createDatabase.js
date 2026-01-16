@@ -14,6 +14,9 @@ async function createDatabase() {
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
     database: "postgres", // Use admin DB to run CREATE DATABASE
+    ssl: {
+      rejectUnauthorized: false, // required for Render Postgres
+  },
   });
 
   const dbName = process.env.DB_NAME;
