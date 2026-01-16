@@ -15,7 +15,7 @@ export default function Profile() {
   // Stores error messages to show to the user
   const [error, setError] = useState(null);
   const navigate = useNavigate();
-  console.log(user);
+  
   /**
    * Deletes the user's profile by:
    * 1. Calling the backend delete user endpoint
