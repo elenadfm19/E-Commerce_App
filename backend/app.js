@@ -36,6 +36,11 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session()); // connects passport to persistent login sessions
 
+// Health route to verify the backend works
+app.get("/", (req, res) => {
+  res.send("Backend is running");
+});
+
 // Mount route handlers to different API domains
 app.use("/cart", cartRoutes);
 app.use("/orders", orderRoutes);
