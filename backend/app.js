@@ -11,6 +11,7 @@ const menuRoutes = require("./routes/menu.js");
 const authRoutes = require("./routes/auth.js");
 const errorHandler = require("./middleware/errorHandler.js");
 const PORT = process.env.PORT;
+const IN_PROD = process.env.NODE_ENV === "production";
 
 // Parses incoming requests with JSON payloads
 app.use(bodyParser.json());
@@ -29,9 +30,9 @@ app.use(
     saveUninitialized: false, // don´t create empty sessions
     secret: process.env.SESSION_SECRET, // secret key to sign the session ID cookie
     cookie: {
-      secure: true,        // must be true on production HTTPS
+      secure: IN_PROD,        // must be true on production HTTPS
       httpOnly: true,      // prevents JS access to cookie
-      sameSite: "none",    // allow cross-site cookies (frontend ↔ backend)
+      sameSite: IN_PROD ? "none" : "lax",    // allow cross-site cookies (frontend ↔ backend)
       maxAge: 24 * 60 * 60 * 1000, // 1 day
     }, // not using HTTPS, 1 day expiration
   })
