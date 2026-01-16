@@ -28,7 +28,12 @@ app.use(
     resave: false, // don´t save session if unmodified
     saveUninitialized: false, // don´t create empty sessions
     secret: process.env.SESSION_SECRET, // secret key to sign the session ID cookie
-    cookie: { secure: false, maxAge: 24 * 60 * 60 * 1000 }, // not using HTTPS, 1 day expiration
+    cookie: {
+      secure: true,        // must be true on production HTTPS
+      httpOnly: true,      // prevents JS access to cookie
+      sameSite: "none",    // allow cross-site cookies (frontend ↔ backend)
+      maxAge: 24 * 60 * 60 * 1000, // 1 day
+    }, // not using HTTPS, 1 day expiration
   })
 );
 
