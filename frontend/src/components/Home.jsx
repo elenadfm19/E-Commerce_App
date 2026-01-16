@@ -47,7 +47,6 @@ export default function Home() {
     // Navigate to profile page
     if (profile) {
       setProfile(false);
-      console.log("entro a profile");
       navigate("users/profile");
     }
   }, [location, login, logout, register, user, profile]);
