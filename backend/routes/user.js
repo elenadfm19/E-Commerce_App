@@ -13,7 +13,6 @@ const verifyAuthentication = require("../middleware/verifyAuthentication.js");
   @desc  Registers a new user and logs them in immediately
 */
 router.post("/register", async (req, res, next) => {
-  console.log('entro1');
   try {
     const { email, password, firstName, lastName, address } = req.body;
     if (
@@ -24,7 +23,6 @@ router.post("/register", async (req, res, next) => {
       address &&
       validator.isEmail(email)
     ) {
-      console.log('entro2');
       // Checks if user already exists with that username (email)
       const user = await UserModel.findByEmail(email);
 
@@ -61,7 +59,6 @@ router.post("/register", async (req, res, next) => {
       res.status(409).json("Some field in the registration is missing or wrong");
     }
   } catch (err) {
-    console.log(err);
     next(err);
   }
 });
