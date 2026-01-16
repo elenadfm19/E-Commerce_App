@@ -16,6 +16,8 @@ const IN_PROD = process.env.NODE_ENV === "production";
 // Parses incoming requests with JSON payloads
 app.use(bodyParser.json());
 
+app.set("trust proxy", 1); // trust first proxy (Render)
+
 // Enable CORS for requests coming from our frontend (Vite dev server).
 // `origin` specifies which frontend URL is allowed to make requests.
 // `credentials: true` allows session cookies to be sent with cross-origin requests.
