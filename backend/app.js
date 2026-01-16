@@ -18,7 +18,7 @@ app.use(bodyParser.json());
 // Enable CORS for requests coming from our frontend (Vite dev server).
 // `origin` specifies which frontend URL is allowed to make requests.
 // `credentials: true` allows session cookies to be sent with cross-origin requests.
-app.use(cors({ origin: "http://localhost:5173", credentials: true }));
+//app.use(cors({ origin: "http://localhost:5173", credentials: true }));
 app.use(cors({ origin: process.env.FRONTEND_URL, credentials: true }));
 
 // Creates a session by using the express-session middleware for persistent login sessions
