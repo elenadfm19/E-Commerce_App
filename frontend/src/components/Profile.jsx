@@ -22,7 +22,6 @@ export default function Profile() {
    * 2. Clearing the user from AuthContext
    */
   async function deleteProfile(e) {
-    console.log('entro a delete profile');
     e.preventDefault();
     try {
       // Call backend endpoint to delete the user profile
@@ -32,7 +31,6 @@ export default function Profile() {
         credentials: "include", // Required to identify the logged-in user
       });
       const data = await res.json();
-      console.log(data);
       // If deletion was successful, clear user from context
       if (res.status == 200) {
         setUser(null);
