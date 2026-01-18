@@ -1,4 +1,4 @@
-# Italian Restaurant Backend
+# Italian Restaurant Fullstack App
 This project is a full-stack e-commerce simulation for an Italian restaurant. It includes:
 - A Node.js + Express + Passport.js backend (authentication, carts, orders, etc.)
 - A React frontend for browsing the menu, manipulating the cart, and placing orders
