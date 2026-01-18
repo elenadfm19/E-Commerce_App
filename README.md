@@ -21,7 +21,9 @@ Users can register, log in, browse the menu, create/edit a shopping cart, and pl
 <img width="1062" height="866" alt="Screenshot 1" src="https://github.com/user-attachments/assets/9638f492-fb88-4f28-8426-0169f782f29e" />
 
 
+
 <img width="1046" height="855" alt="Screenshot 2" src="https://github.com/user-attachments/assets/d5e4c526-d416-4547-8979-c154266b112d" />
+
 
 
 <img width="1062" height="647" alt="Screenshot 3" src="https://github.com/user-attachments/assets/64932b36-5944-4f7a-ae6e-891dc5eb20f0" />
