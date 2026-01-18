@@ -18,17 +18,13 @@ Users can register, log in, browse the menu, create/edit a shopping cart, and pl
 [Live Demo on Render] ([(https://e-commerce-app-frontend-nw9p.onrender.com)](https://e-commerce-app-frontend-nw9p.onrender.com))
 
 ## 📷 Screenshots
-
-<img width="1047" height="843" alt="Screenshot 1" src="https://github.com/user-attachments/assets/da36e61a-a246-43cb-a2c2-9601afaa9d4d" />
-
+<img width="1062" height="866" alt="Screenshot 1" src="https://github.com/user-attachments/assets/9638f492-fb88-4f28-8426-0169f782f29e" />
 
 
-<img width="1037" height="853" alt="Screenshot 2" src="https://github.com/user-attachments/assets/0c8be2c2-96c9-42e0-8492-4f635f341e92" />
+<img width="1046" height="855" alt="Screenshot 2" src="https://github.com/user-attachments/assets/d5e4c526-d416-4547-8979-c154266b112d" />
 
 
-
-<img width="1048" height="645" alt="Screenshot 3" src="https://github.com/user-attachments/assets/ff9b221a-5431-4446-bed3-6efc727590c6" />
-
+<img width="1062" height="647" alt="Screenshot 3" src="https://github.com/user-attachments/assets/64932b36-5944-4f7a-ae6e-891dc5eb20f0" />
 
 
 
