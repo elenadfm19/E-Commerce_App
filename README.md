@@ -5,7 +5,7 @@ This project is a full-stack e-commerce simulation for an Italian restaurant. It
 
 Users can register, log in, browse the menu, create/edit a shopping cart, and place/view orders—similar to real online ordering systems.
 
-## 🎨 Frontend Features
+## 🎨 Features
 - Log in / register
 - Browse menu items
 - Add/remove dishes to the cart
@@ -13,6 +13,15 @@ Users can register, log in, browse the menu, create/edit a shopping cart, and pl
 - View past orders
 - See order details
 - Maintain session state via cookies
+
+## 🖼️ Demo
+[Live Demo on Render] ([(https://e-commerce-app-frontend-nw9p.onrender.com)](https://e-commerce-app-frontend-nw9p.onrender.com))
+
+## 📷 Screenshots
+![image](https://github.com/user-attachments/assets/8680ce39-f2b3-4f6d-8f71-f5f0612e5160)
+
+
+![image](https://github.com/user-attachments/assets/f3709fec-3a38-4054-a417-5dd4205b8c3f)
 
 ## 🧱 Tech stack
 Frontend
