@@ -5,6 +5,15 @@ This project is a full-stack e-commerce simulation for an Italian restaurant. It
 
 Users can register, log in, browse the menu, create/edit a shopping cart, and place/view orders—similar to real online ordering systems.
 
+## 🎨 Frontend Features
+✔ Log in / register
+✔ Browse menu items
+✔ Add/remove dishes to the cart
+✔ Place orders
+✔ View past orders
+✔ See order details
+✔ Maintain session state via cookies
+
 ## 🧱 Tech stack
 Frontend
 - Vite
@@ -21,17 +30,6 @@ Backend
 - Sessions + Cookies
 - REST API
   
-## Running the app
-This project requires a [PostgreSQL](https://www.postgresql.org/) database to be running locally. Modify the file `.env` in the root folder with the correct values for your local database (variables starting with 'DB_'): 
-
-Once PostgreSQL is running you can initialize the database with the right tables with any of those 2 commands:`npm run create-db` or `node dbInit.js`
-
-To run the app use any of these commands: `npm run start` of `node app.js`
-
-Now the API can be accessed on `http://localhost:<your-port>`
-
-
-
 ## 🔧 Installation & Setup
 
 1. Clone the repository:
