@@ -6,13 +6,13 @@ This project is a full-stack e-commerce simulation for an Italian restaurant. It
 Users can register, log in, browse the menu, create/edit a shopping cart, and place/view orders—similar to real online ordering systems.
 
 ## 🎨 Frontend Features
-✔ Log in / register
-✔ Browse menu items
-✔ Add/remove dishes to the cart
-✔ Place orders
-✔ View past orders
-✔ See order details
-✔ Maintain session state via cookies
+- Log in / register
+- Browse menu items
+- Add/remove dishes to the cart
+- Place orders
+- View past orders
+- See order details
+- Maintain session state via cookies
 
 ## 🧱 Tech stack
 Frontend
